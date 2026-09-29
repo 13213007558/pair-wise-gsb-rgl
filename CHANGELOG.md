@@ -1,5 +1,12 @@
 # Changelog
 
+### Features
+
+* Add {RGL::ColorBoundedForestAlgorithm} and {RGL::Graph#max_weight_color_bounded_forest}:
+  exact maximum weight forest selection under per-color edge quotas (weighted
+  matroid intersection of the graphic matroid with a partition matroid), with
+  no external solver
+
 ## [0.6.7](https://github.com/monora/rgl/compare/v0.6.6...v0.6.7) (2026-05-10)
 
 
