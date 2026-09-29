@@ -74,6 +74,8 @@ algorithms. The graph algorithms in RGL currently include:
 *   Transitive Closure {RGL::Graph#transitive_closure}
 *   Dijkstra's Shortest Path Algorithm {RGL::DijkstraAlgorithm}
 *   Bellman Ford Algorithm {RGL::BellmanFordAlgorithm}
+*   Maximum Weight Colored Forest (weighted matroid intersection of the
+    graphic matroid with per-color quotas) {RGL::Graph#max_weight_colored_forest}
 
 ### Data Structures
 
