@@ -74,6 +74,7 @@ algorithms. The graph algorithms in RGL currently include:
 *   Transitive Closure {RGL::Graph#transitive_closure}
 *   Dijkstra's Shortest Path Algorithm {RGL::DijkstraAlgorithm}
 *   Bellman Ford Algorithm {RGL::BellmanFordAlgorithm}
+*   Minimum Weighted Directed Feedback Vertex Set {RGL::Graph#minimum_weighted_feedback_vertex_set}
 
 ### Data Structures
 
@@ -180,6 +181,18 @@ Check whether a path exists between vertices 1 and 5
     require 'rgl/topsort'
     irb> dg.topsort_iterator.to_a
     [1, 2, 3, 6, 4, 5]
+
+A minimum weighted directed feedback vertex set can be computed without modifying
+the graph. Forbidden vertices are retained, and a cycle containing only forbidden
+vertices makes the problem infeasible:
+
+    require 'rgl/feedback_vertex_set'
+    result = dg.minimum_weighted_feedback_vertex_set(
+      weights: { 1 => 10, 2 => 1 }, forbidden_vertices: [3]
+    )
+    result.deleted_vertices
+    result.total_weight
+    result.topological_order
 
 A more elaborated example showing *implicit graphs*:
 
