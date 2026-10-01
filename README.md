@@ -73,6 +73,7 @@ algorithms. The graph algorithms in RGL currently include:
 *   Strongly Connected Components {RGL::Graph#strongly_connected_components}
 *   Transitive Closure {RGL::Graph#transitive_closure}
 *   Dijkstra's Shortest Path Algorithm {RGL::DijkstraAlgorithm}
+*   Exact Steiner Tree {RGL::Graph#minimum_steiner_tree}
 *   Bellman Ford Algorithm {RGL::BellmanFordAlgorithm}
 
 ### Data Structures
