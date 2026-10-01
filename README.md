@@ -73,7 +73,16 @@ algorithms. The graph algorithms in RGL currently include:
 *   Strongly Connected Components {RGL::Graph#strongly_connected_components}
 *   Transitive Closure {RGL::Graph#transitive_closure}
 *   Dijkstra's Shortest Path Algorithm {RGL::DijkstraAlgorithm}
+*   Exact Steiner Tree {RGL::Graph#exact_steiner_tree}
 *   Bellman Ford Algorithm {RGL::BellmanFordAlgorithm}
+
+The exact Steiner tree solver accepts undirected graphs with non-negative edge
+weights. It connects the supplied terminals and may use other vertices as
+relays. Duplicate terminals are ignored, zero-weight edges and a single
+terminal are supported, and a disconnected terminal set returns +nil+. The
+exact algorithm supports at most
+{RGL::ExactSteinerTreeAlgorithm::MAX_TERMINALS} distinct terminals, while the
+graph may contain many more vertices.
 
 ### Data Structures
 
