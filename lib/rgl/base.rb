@@ -108,6 +108,10 @@ module RGL
         super || ((target == edge.source) && (source == edge.target))
       end
 
+      # The == alias inherited from DirectedEdge would still be bound to the
+      # directed (orientation-sensitive) version of eql?.
+      alias == eql?
+
       # @example
       #   UnDirectedEdge[1,2].to_s == "(1=2)"
       # @return (see DirectedEdge#to_s)

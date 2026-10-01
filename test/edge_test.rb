@@ -29,6 +29,8 @@ class TestEdge < Test::Unit::TestCase
     assert_equal("(1=2)", e.to_s)
     assert(UnDirectedEdge.new(1, 2).eql?(UnDirectedEdge.new(2, 1)))
     assert(!UnDirectedEdge.new(1, 3).eql?(UnDirectedEdge.new(2, 1)))
+    assert(UnDirectedEdge.new(1, 2) == UnDirectedEdge.new(2, 1))
+    assert(UnDirectedEdge.new(1, 2) != UnDirectedEdge.new(1, 3))
     assert_equal(UnDirectedEdge.new(1, 2).hash, UnDirectedEdge.new(1, 2).hash)
   end
 
