@@ -74,6 +74,7 @@ algorithms. The graph algorithms in RGL currently include:
 *   Transitive Closure {RGL::Graph#transitive_closure}
 *   Dijkstra's Shortest Path Algorithm {RGL::DijkstraAlgorithm}
 *   Bellman Ford Algorithm {RGL::BellmanFordAlgorithm}
+*   Tutte Polynomial {RGL::TuttePolynomial.calculate}
 
 ### Data Structures
 
@@ -258,6 +259,32 @@ graph_options = {
 
 graph.write_to_graphic_file('png', 'graph', graph_options)
 
+```
+
+## Tutte polynomial
+
+For undirected simple graphs, RGL can compute the Tutte polynomial exactly as
+integer coefficients keyed by `x` and `y` degree:
+
+```ruby
+require 'rgl/adjacency'
+require 'rgl/tutte'
+
+graph = RGL::AdjacencyGraph[1, 2, 2, 3, 3, 1]
+polynomial = graph.tutte_polynomial
+
+polynomial.to_h       # {[2, 0] => 1, [1, 0] => 1, [0, 1] => 1}
+polynomial.evaluate(1, 1) # 3, the number of spanning trees for a connected graph
+```
+
+Deletion-contraction keeps the parallel edges and loops that appear internally.
+Bridges and loops are reduced directly, disconnected components are multiplied,
+and isomorphic repeated states share memoized results. Pass a positive integer
+`budget` to bound the number of distinct states evaluated; exceeding it raises
+{RGL::TuttePolynomial::BudgetExceededError}:
+
+```ruby
+graph.tutte_polynomial(budget: 1000)
 ```
 
 ## Credits
